@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Alchemmist <anton.ingrish@gmail.com>"]
 readme = "README.md"
+packages = [{include = "smartcab"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

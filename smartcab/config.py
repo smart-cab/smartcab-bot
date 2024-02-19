@@ -7,3 +7,5 @@ load_dotenv()
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 
+
+DEVICES_CALLBACK_PATTERN = "device_"
