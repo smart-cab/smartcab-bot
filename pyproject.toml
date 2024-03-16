@@ -20,3 +20,8 @@ pyright = "^1.1.354"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+ignore = ["F401"]
+
