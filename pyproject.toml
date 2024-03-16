@@ -15,6 +15,7 @@ python-dotenv = "^1.0.1"
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.6.2"
 ruff = "^0.3.3"
+pyright = "^1.1.354"
 
 [build-system]
 requires = ["poetry-core"]
