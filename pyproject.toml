@@ -23,5 +23,5 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.ruff]
-ignore = ["F401"]
+lint.ignore = ["F401"]
 
