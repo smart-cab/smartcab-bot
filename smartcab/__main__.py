@@ -5,8 +5,7 @@ from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandle
 
 
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
 
 
@@ -29,10 +28,9 @@ def main():
 
     for pattern, callback_handler in CALLBACK_QUERY_HANDLERS.items():
         application.add_handler(CallbackQueryHandler(callback_handler, pattern=pattern))
-    
+
     application.run_polling()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-

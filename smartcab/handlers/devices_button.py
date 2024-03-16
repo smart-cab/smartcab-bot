@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import ContextTypes 
+from telegram.ext import ContextTypes
 
 
 async def devices_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -9,7 +9,3 @@ async def devices_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     await query.answer()
 
     await query.edit_message_text(text=f"Selected option: {query.data}")
-
-
-
-
