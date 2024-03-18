@@ -17,3 +17,8 @@ services:
       - ./:/app
     stop_grace_period: 1s
 
+networks:
+  default:
+    driver: bridge
+    name: smartcab
+    external: true
