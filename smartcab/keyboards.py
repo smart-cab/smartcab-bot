@@ -9,9 +9,11 @@ MENU_INLINE_KEYBOARD = [
         ),
     ],
     [
-        InlineKeyboardButton("Обновить рассписание 🗓️", callback_data="load_schedule_"),
         InlineKeyboardButton(
-            "Выгрузить статистику 📊", callback_data="upload_statistics_"
+            "Обновить рассписание 🗓️", callback_data=config.SCHEDULE_CALLBACK_PATTERN
+        ),
+        InlineKeyboardButton(
+            "Выгрузить статистику 📊", callback_data=config.STATISTICS_CALLBACK_PATTERN
         ),
     ],
 ]
