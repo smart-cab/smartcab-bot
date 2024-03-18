@@ -7,8 +7,12 @@ services:
       context: .
     # environment:
     #   - PROD=false
+    ports:
+      - "4000:4000"
     networks:
       - default
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
       - ./:/app
     stop_grace_period: 1s
