@@ -10,6 +10,7 @@ packages = [{include = "smartcab"}]
 python = "^3.11"
 python-telegram-bot = "^20.8"
 python-dotenv = "^1.0.1"
+aiohttp = "^3.9.3"
 
 
 [tool.poetry.group.dev.dependencies]

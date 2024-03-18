@@ -1,0 +1,15 @@
+version: "1"
+
+services:
+  bot:
+    container_name: smartcab-bot
+    build:
+      context: .
+    # environment:
+    #   - PROD=false
+    networks:
+      - default
+    volumes:
+      - ./:/app
+    stop_grace_period: 1s
+

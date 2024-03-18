@@ -1,4 +1,5 @@
 import logging
+from smartcab import fetch_data
 from telegram import Update
 from telegram.ext import ContextTypes
 
@@ -12,7 +13,9 @@ async def upload_statistics(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.edit_message_text(
         text="Выполняется дамп базы данных. Пожалуйста подождите..."
     )
-    # await asyncio.sleep(3)
+    # url = 'http://localhost:5000/status'
+    # data = await fetch_data(url)
+    # print(data)
     await query.edit_message_text(text="А вот и статитистика!")
     if effective_chat := update.effective_chat:
         await context.bot.send_document(
