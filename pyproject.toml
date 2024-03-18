@@ -21,7 +21,6 @@ pyright = "^1.1.354"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
 [tool.ruff]
 lint.ignore = ["F401"]
 

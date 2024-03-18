@@ -1,14 +1,18 @@
 repos:
-- repo: https://github.com/astral-sh/ruff-pre-commit
-  # Ruff version.
-  rev: v0.3.3
-  hooks:
-    # Run the linter.
-    - id: ruff
-      args: [ --fix ]
-    # Run the formatter.
-    - id: ruff-format
-- repo: https://github.com/RobertCraigie/pyright-python
-  rev: v1.1.354
-  hooks:
-  - id: pyright
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.3.3
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: my_pyright_check
+        name: Run Pyright
+        entry: poetry run pyright
+        language: system
+        pass_filenames: false
+        types: [python]

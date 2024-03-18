@@ -14,6 +14,7 @@ async def upload_statistics(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     # await asyncio.sleep(3)
     await query.edit_message_text(text="А вот и статитистика!")
-    await context.bot.send_document(
-        chat_id=update.effective_chat.id, document=open("path_to_file", "rb")
-    )
+    if effective_chat := update.effective_chat:
+        await context.bot.send_document(
+            chat_id=effective_chat.id, document=open("path_to_file", "rb")
+        )
