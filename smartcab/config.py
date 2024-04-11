@@ -7,7 +7,16 @@ load_dotenv(find_dotenv())
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 
+ACCEPTABLE_SCHEDULE_FILE_EXTENSIONS = (".xlsx", ".xls", ".csv")
+
 
 DEVICES_CALLBACK_PATTERN = "button_devices"
-SCHEDULE_CALLBACK_PATTERN = "button_schedule"
+
 STATISTICS_CALLBACK_PATTERN = "button_statistics"
+
+SCHEDULE_CALLBACK_PATTERN = "button_schedule"
+LOAD_SCHEDULE_CALLBACK_PATTERN = "botton_schedule_load"
+UPLOAD_SCHEDULE_CALLBACK_PATTERN = "botton_schedule_upload"
+
+API_HOSTNAME = "backend"
+API_PREFIX = f"http://{API_HOSTNAME}:5000"

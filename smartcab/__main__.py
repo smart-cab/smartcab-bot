@@ -1,8 +1,13 @@
 import logging
 from smartcab import config
 from smartcab import handlers
-from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler
-from telegram import Update
+from telegram.ext import (
+    ApplicationBuilder,
+    CallbackQueryHandler,
+    CommandHandler,
+    MessageHandler,
+    filters,
+)
 
 
 logging.basicConfig(
@@ -17,7 +22,9 @@ COMMAND_HANDLERS = {
 CALLBACK_QUERY_HANDLERS = {
     f"^{config.DEVICES_CALLBACK_PATTERN}$": handlers.devices_button,
     f"^{config.STATISTICS_CALLBACK_PATTERN}$": handlers.upload_statistics,
-    f"^{config.SCHEDULE_CALLBACK_PATTERN}$": handlers.load_schedule,
+    f"^{config.LOAD_SCHEDULE_CALLBACK_PATTERN}$": handlers.load_schedule,
+    f"^{config.UPLOAD_SCHEDULE_CALLBACK_PATTERN}$": handlers.upload_schedulde,
+    f"^{config.SCHEDULE_CALLBACK_PATTERN}$": handlers.schedule,
 }
 
 
@@ -29,6 +36,8 @@ def main():
 
     for pattern, callback_handler in CALLBACK_QUERY_HANDLERS.items():
         application.add_handler(CallbackQueryHandler(callback_handler, pattern=pattern))
+
+    application.add_handler(MessageHandler(filters.ALL, handlers.handle_schedule_file))
 
     application.run_polling()
 
