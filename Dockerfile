@@ -1,4 +1,4 @@
-FROM python:alpine3.18
+FROM python:slim
 
 ENV PYTHONFAULTHANDLER=1 \
   PYTHONUNBUFFERED=1 \
@@ -9,8 +9,6 @@ ENV PYTHONFAULTHANDLER=1 \
   POETRY_VERSION=1.6.1
 
 WORKDIR /app
-
-RUN apk upgrade --no-cache && apk add --no-cache libgcc gcc musl-dev bind-tools yaml-dev libffi libffi-dev
 
 RUN pip install --no-cache-dir "poetry==$POETRY_VERSION"
 
