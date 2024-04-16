@@ -8,4 +8,4 @@ async def devices_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         logging.error("The callabck query could not be received")
         return
 
-    await query.edit_message_text(text="device in development")
+    await query.edit_message_text(text="Управление девайсами в разработке...")

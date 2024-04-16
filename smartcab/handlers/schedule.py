@@ -76,7 +76,7 @@ async def handle_schedule_file(update: Update, context: ContextTypes.DEFAULT_TYP
         return
 
     file_data = await schedule_file.download_as_bytearray()
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(trust_env=True) as session:
         form_data = aiohttp.FormData()
         form_data.add_field("file", file_data)
         async with session.post(
