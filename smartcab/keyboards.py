@@ -27,8 +27,21 @@ MENU_INLINE_KEYBOARD = [
         InlineKeyboardButton(
             "Пароль хаба 🔑", callback_data=config.PASSWORD_CALLBACK_PATTERN
         ),
+        InlineKeyboardButton("Снимки с камеры 📸", callback_data=config.WEBCAM_FRAMES),
     ],
 ]
+
+WEBCAM_KEYBOARD = [
+    [
+        InlineKeyboardButton(
+            "Последние фото 🏞", callback_data=config.LAST_IMAGES_WEBCAM
+        ),
+    ],
+    [
+        InlineKeyboardButton("По дате 🗓", callback_data=config.IMAGES_WEBCAM_BY_DATE),
+    ],
+]
+
 
 ADMINS_KEYBOARD = [
     [

@@ -18,3 +18,9 @@ from .admins import (
     handle_remove_admin,
     show_admin_list,
 )
+from .webcam import (
+    webcam,
+    send_last_photo,
+    send_photo_by_date,
+    handle_for_all_photo_by_date,
+)

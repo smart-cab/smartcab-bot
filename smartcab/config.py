@@ -33,3 +33,9 @@ NEW_ADMIN_CALLBACK_PATTERN = "add_admin"
 MY_STATUS_CALLBACK_PATTERN = "my_status"
 
 ADMIN_LIST = "admin_list"
+
+WEBCAM_FRAMES = "webcam_frames"
+LAST_IMAGES_WEBCAM = "last_image_webcam"
+IMAGES_WEBCAM_BY_DATE = "webacm_images_by_date"
+
+LAST_PHOTO_COUNT = 1

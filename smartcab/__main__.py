@@ -38,6 +38,10 @@ CALLBACK_QUERY_HANDLERS = {
     f"^{config.REMOVE_ADMIN_CALLBACK_PATTERN}$": handlers.remove_admin,
     re.compile(r"^admin_phone_.*$"): handlers.handle_remove_admin,
     f"^{config.ADMIN_LIST}$": handlers.show_admin_list,
+    f"^{config.WEBCAM_FRAMES}$": handlers.webcam,
+    f"^{config.LAST_IMAGES_WEBCAM}$": handlers.send_last_photo,
+    f"^{config.IMAGES_WEBCAM_BY_DATE}$": handlers.send_photo_by_date,
+    re.compile(r"^date_group_.*$"): handlers.handle_for_all_photo_by_date,
 }
 
 
