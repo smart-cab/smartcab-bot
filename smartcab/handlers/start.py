@@ -4,7 +4,6 @@ import telegram
 from smartcab.user_mem import usermap
 from telegram.ext import ContextTypes
 from smartcab.keyboards import ACCES_TO_CONTACT_KEYBOARD
-from smartcab import message_text
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -44,4 +43,7 @@ async def handle_user_contact(update: Update, context: ContextTypes.DEFAULT_TYPE
         return
 
     if not usermap.user_is_already_exists(phone):
-        usermap.add_user(user.id, phone)
+        if not phone.startswith("+") and not phone.startswith("8"):
+            usermap.add_user(user.id, f"+{phone}")
+        else:
+            usermap.add_user(user.id, f"{phone}")

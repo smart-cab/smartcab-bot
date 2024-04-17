@@ -9,3 +9,12 @@ from .hub_password import (
     update_password,
     handle_new_password,
 )
+from .admins import (
+    admins,
+    add_admin,
+    my_status,
+    remove_admin,
+    handle_new_admin,
+    handle_remove_admin,
+    show_admin_list,
+)

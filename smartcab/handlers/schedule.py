@@ -86,7 +86,7 @@ async def handle_schedule_file(update: Update, context: ContextTypes.DEFAULT_TYP
 
     await update.message.reply_text("Устанавливаем расписание...")
     if json.loads(response_text)["status"] == "ok":
-        await update.message.reply_text("Отлично! Расписание успешно установлено")
+        await update.message.reply_text("Отлично! Расписание успешно установлено ✅")
     else:
         await update.message.reply_text(
             "Не удалось установить расписание. Проверить содержимое файла."

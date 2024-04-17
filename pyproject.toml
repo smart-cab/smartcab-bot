@@ -12,7 +12,7 @@ python-telegram-bot = "^20.8"
 python-dotenv = "^1.0.1"
 aiohttp = "^3.9.3"
 redis = "^5.0.3"
-smartcab-rpicam = {git = "https://github.com/smart-cab/rpicam.git"}
+# smartcab-rpicam = {git = "https://github.com/smart-cab/rpicam.git"}
 
 
 [tool.poetry.group.dev.dependencies]

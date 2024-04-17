@@ -25,3 +25,11 @@ API_PREFIX = f"http://{API_HOSTNAME}:5000"
 
 SHOW_PASSWORD_CALLBACK_PATTERN = "botton_password_show"
 UPDATE_PASSWORD_CALLBACK_PATTERN = "botton_password_update"
+
+ADMINS_CALLBACK_PATTERN = "admins_button"
+
+REMOVE_ADMIN_CALLBACK_PATTERN = "remove_admin"
+NEW_ADMIN_CALLBACK_PATTERN = "add_admin"
+MY_STATUS_CALLBACK_PATTERN = "my_status"
+
+ADMIN_LIST = "admin_list"

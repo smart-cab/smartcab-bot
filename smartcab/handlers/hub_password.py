@@ -35,9 +35,9 @@ async def update_password(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def handle_new_password(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global PASSWORD_WAS_REQUESTED
+
     if not PASSWORD_WAS_REQUESTED:
         return
-
     if not update.message:
         logging.error("The update message could not be received")
         return
@@ -58,11 +58,11 @@ async def handle_new_password(update: Update, context: ContextTypes.DEFAULT_TYPE
     await update.message.reply_text("Устанавливаем пароль...")
 
     if json.loads(response_text)["status"] == "ok":
-        await update.message.reply_text("Отлично! Пароль успешно обнавлён")
+        await update.message.reply_text("Отлично! Пароль успешно обнавлён ✅")
         PASSWORD_WAS_REQUESTED = False
     else:
         await update.message.reply_text(
-            "Не удалось установить пароль. Проверьте корректнотсь данных"
+            "Не добавить админа. Проверьте корректнотсь данных."
         )
 
 

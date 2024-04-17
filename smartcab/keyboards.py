@@ -13,6 +13,7 @@ MENU_INLINE_KEYBOARD = [
         InlineKeyboardButton(
             "Девайсы 💡", callback_data=config.DEVICES_CALLBACK_PATTERN
         ),
+        InlineKeyboardButton("Админы 👤", callback_data=config.ADMINS_CALLBACK_PATTERN),
     ],
     [
         InlineKeyboardButton(
@@ -25,6 +26,25 @@ MENU_INLINE_KEYBOARD = [
     [
         InlineKeyboardButton(
             "Пароль хаба 🔑", callback_data=config.PASSWORD_CALLBACK_PATTERN
+        ),
+    ],
+]
+
+ADMINS_KEYBOARD = [
+    [
+        InlineKeyboardButton(
+            "Добавить 👥", callback_data=config.NEW_ADMIN_CALLBACK_PATTERN
+        ),
+        InlineKeyboardButton(
+            "Удалить 🚫", callback_data=config.REMOVE_ADMIN_CALLBACK_PATTERN
+        ),
+    ],
+    [
+        InlineKeyboardButton("Список админов 📜", callback_data=config.ADMIN_LIST),
+    ],
+    [
+        InlineKeyboardButton(
+            "Мой статус 👑", callback_data=config.MY_STATUS_CALLBACK_PATTERN
         ),
     ],
 ]

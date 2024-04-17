@@ -1,12 +1,16 @@
 import logging
+import re
 from smartcab import config
 from smartcab import handlers
+from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
     CallbackQueryHandler,
     CommandHandler,
     MessageHandler,
     filters,
+    ConversationHandler,
+    ContextTypes,
 )
 
 
@@ -28,7 +32,22 @@ CALLBACK_QUERY_HANDLERS = {
     f"^{config.PASSWORD_CALLBACK_PATTERN}$": handlers.hub_password,
     f"^{config.SHOW_PASSWORD_CALLBACK_PATTERN}$": handlers.show_password,
     f"^{config.UPDATE_PASSWORD_CALLBACK_PATTERN}$": handlers.update_password,
+    f"^{config.ADMINS_CALLBACK_PATTERN}$": handlers.admins,
+    f"^{config.MY_STATUS_CALLBACK_PATTERN}$": handlers.my_status,
+    f"^{config.NEW_ADMIN_CALLBACK_PATTERN}$": handlers.add_admin,
+    f"^{config.REMOVE_ADMIN_CALLBACK_PATTERN}$": handlers.remove_admin,
+    re.compile(r"^admin_phone_.*$"): handlers.handle_remove_admin,
+    f"^{config.ADMIN_LIST}$": handlers.show_admin_list,
 }
+
+
+# async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
+#     print("==========CENCEL===========")
+
+
+async def pull_text_handlers(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await handlers.handle_new_password(update, context)
+    await handlers.handle_new_admin(update, context)
 
 
 def main():
@@ -44,11 +63,28 @@ def main():
         MessageHandler(filters.Document.ALL, handlers.handle_schedule_file)
     )
     application.add_handler(
-        MessageHandler(filters.Text(), handlers.handle_new_password)
-    )
-    application.add_handler(
         MessageHandler(filters.CONTACT, handlers.handle_user_contact)
     )
+
+    # admin_conv_handler = ConversationHandler(
+    #     entry_points=[CallbackQueryHandler(handlers.add_admin, config.NEW_ADMIN_CALLBACK_PATTERN)],
+    #     states={
+    #         0: [MessageHandler(filters.Text(), handlers.handle_new_admin)],
+    #     },
+    #     fallbacks=[CommandHandler('cancel', cancel)],
+    # )
+    # password_conv_handler = ConversationHandler(
+    #     entry_points=[CallbackQueryHandler(handlers.update_password, config.UPDATE_PASSWORD_CALLBACK_PATTERN)],
+    #     states={
+    #         0: [MessageHandler(filters.Text() & ~filters.Command(), handlers.handle_new_password)],
+    #     },
+    #     fallbacks=[],
+    # )
+    # application.add_handler(admin_conv_handler)
+    # application.add_handler(password_conv_handler)
+
+    application.add_handler(MessageHandler(filters.Text(), pull_text_handlers))
+    application.add_handler(MessageHandler(filters.Text(), handlers.handle_new_admin))
 
     application.run_polling()
 
