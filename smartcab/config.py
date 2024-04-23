@@ -21,7 +21,7 @@ LOAD_SCHEDULE_CALLBACK_PATTERN = "botton_schedule_load"
 UPLOAD_SCHEDULE_CALLBACK_PATTERN = "botton_schedule_upload"
 
 API_HOSTNAME = "backend"
-API_PREFIX = f"http://{API_HOSTNAME}:5000"
+API_PREFIX = f"https://{API_HOSTNAME}:5000"
 
 SHOW_PASSWORD_CALLBACK_PATTERN = "botton_password_show"
 UPDATE_PASSWORD_CALLBACK_PATTERN = "botton_password_update"

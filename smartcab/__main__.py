@@ -9,7 +9,6 @@ from telegram.ext import (
     CommandHandler,
     MessageHandler,
     filters,
-    ConversationHandler,
     ContextTypes,
 )
 

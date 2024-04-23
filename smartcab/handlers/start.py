@@ -1,5 +1,12 @@
 import logging
-from telegram import Update
+from telegram import (
+    KeyboardButton,
+    MenuButton,
+    MenuButtonCommands,
+    ReplyKeyboardMarkup,
+    ReplyKeyboardRemove,
+    Update,
+)
 import telegram
 from smartcab.user_mem import usermap
 from telegram.ext import ContextTypes
@@ -44,6 +51,15 @@ async def handle_user_contact(update: Update, context: ContextTypes.DEFAULT_TYPE
 
     if not usermap.user_is_already_exists(phone):
         if not phone.startswith("+") and not phone.startswith("8"):
-            usermap.add_user(user.id, f"+{phone}")
+            usermap.add_user(user.id, f"+{phone.replace(" ", "")}")
         else:
-            usermap.add_user(user.id, f"{phone}")
+            usermap.add_user(user.id, f"{phone.replace(" ", "")}")
+
+    await update.message.reply_text(
+        "Отлично! Приятно познакомиться.", reply_markup=ReplyKeyboardRemove()
+    )
+
+    # await context.bot.set_chat_menu_button(
+    #     update.effective_chat.id,
+    #     MenuButtonCommands()
+    # )
