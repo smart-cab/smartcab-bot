@@ -1,3 +1,5 @@
+![Bot preview](./preview.png)
+
 # SmartCab Bot
 
 SmartCab Bot is the **Telegram assistant** for the [SmartCab](https://github.com/smart-cab) smart classroom system.  
@@ -21,3 +23,4 @@ It extends the hub’s functionality, giving teachers an easy way to manage clas
 
 - Built with **Python** using [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot).  
 - Integrates with SmartCab hub services via REST API.
+
